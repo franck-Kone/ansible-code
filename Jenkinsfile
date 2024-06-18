@@ -4,6 +4,7 @@ pipeline{
     stages{
         stage("zip the file") {
             steps{
+                sh 'rm -rf *.zip || echo "No files with .zip extension found"'
                 sh "zip ansible-${BUILD_ID}.zip * --exclude Jenkinsfile"
                 sh 'ls -al'
             }
