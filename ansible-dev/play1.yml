@@ -49,5 +49,5 @@
         state: directory
     - name: Copy content to index
       copy: 
-        dest: file_output.diff.before.path
+        dest: /var/www/html/index.html
         content: "<h1>This is created using ansible</h1>" 
