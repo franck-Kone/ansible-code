@@ -6,7 +6,7 @@ pipeline{
             steps{
                 sh 'rm -rf *.zip || echo "No files with .zip extension found"'
                 sh "zip -r ansible-${BUILD_ID}.zip * --exclude Jenkinsfile"
-                sh 'ls -al'
+                sh 'ls -l'
             }
         }
         stage("upload artifacts to jfrog") {
