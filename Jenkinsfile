@@ -5,7 +5,7 @@ pipeline{
         stage("zip the file") {
             steps{
                 sh "zip ansible-${BUILD_ID}.zip * --exclude Jenkinsfile"
-                sh 'ls -l'
+                sh 'ls -al'
             }
         }
         stage("upload artifacts to jfrog") {
