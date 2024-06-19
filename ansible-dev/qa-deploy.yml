@@ -14,12 +14,12 @@
       register: pid_output
       tags: 
         - a
-
-    - name: Read pid_output value
-      debug:
-        var: pid_output.stdout
-      tags:
-        - b
+# to know what happened with pid_output.stdout
+    # - name: Read pid_output value
+    #   debug:
+    #     var: pid_output.stdout
+    #   tags:
+    #     - b
 
     - name: Kill Running App
       shell: kill -9 "{{pid_output.stdout}}"
