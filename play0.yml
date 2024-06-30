@@ -5,13 +5,9 @@
   tasks:
     - name: Install nginx
       apt:
-        name: nginx
+        name: nginx httpd
         state: present
         update_cache: yes
-    - name: Install nginx on RedHat family
-      package:
-        name: httpd
-        state: present
     - name: Start httpd daemon
       service:
         name: httpd
