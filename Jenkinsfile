@@ -29,7 +29,7 @@ pipeline{
         } */
         stage('Publish to ansible server') {
             steps{
-               sh 'ssh root@66.228.39.149:/root unzip -o ansible-${BUILD_ID}.zip && rm -rf ansible-*.zip'
+               sh 'ssh root@66.228.39.149 unzip -o ansible-${BUILD_ID}.zip && rm -rf ansible-*.zip'
             }
         } 
         /*sshPublisher(publishers: [sshPublisherDesc(configName: 'Ansible server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'unzip -o ansible-${BUILD_ID}.zip; rm -rf ansible-${BUILD_ID}.zip', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'ansible-${BUILD_ID}.zip')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])*/
