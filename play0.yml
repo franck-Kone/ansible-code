@@ -8,6 +8,10 @@
         name: nginx
         state: present
         update_cache: yes
+    - name: Install nginx on RedHat family
+      package:
+        name: httpd
+        state: present
      
     - name: Create index file
       file:

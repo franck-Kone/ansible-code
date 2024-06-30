@@ -32,9 +32,13 @@ pipeline{
                sh 'ssh root@66.228.39.149 unzip -o ansible-${BUILD_ID}.zip'
             }
         } 
+        stage('remove previous packages') {
+            steps{
+               sh 'ssh root@66.228.39.149 rm -rf ansible-*.zip'
+            }
+        } 
         stage('run playbook') {
             steps{
-                sh 'ssh root@66.228.39.149 rm -rf ansible-*.zip'
                sh 'ssh root@66.228.39.149 ansible all -m ping'
                sh 'ssh root@66.228.39.149 ansible-playbook play0.yml'
             }
