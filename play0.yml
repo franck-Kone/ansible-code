@@ -12,7 +12,11 @@
       package:
         name: httpd
         state: present
-     
+    - name: Start httpd daemon
+      service:
+        name: httpd
+        state: started
+        enabled: yes
     - name: Create index file
       file:
         path: /var/www/html/index.html

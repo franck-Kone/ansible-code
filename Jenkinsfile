@@ -34,7 +34,7 @@ pipeline{
         } 
         stage('remove previous packages') {
             steps{
-               sh 'ssh root@66.228.39.149 rm -rf ansible-*.zip'
+               sh 'ssh root@66.228.39.149 rm -rf /root/ansible-*.zip'
             }
         } 
         stage('run playbook') {
