@@ -16,5 +16,5 @@
       register: file_output
     - name: Copy content to index
       copy:
-        dest: file_output.diff.before.path
+        dest: {{file_output.diff.before.path}}
         content: "<h1>This is created using ansible</h1>"
