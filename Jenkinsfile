@@ -32,6 +32,12 @@ pipeline{
                sh 'ssh root@66.228.39.149 unzip -o ansible-${BUILD_ID}.zip && rm -rf ansible-*.zip'
             }
         } 
-        /*sshPublisher(publishers: [sshPublisherDesc(configName: 'Ansible server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'unzip -o ansible-${BUILD_ID}.zip; rm -rf ansible-${BUILD_ID}.zip', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'ansible-${BUILD_ID}.zip')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])*/
+        stage('run playbook') {
+            steps{
+               sh 'ssh root@66.228.39.149 ansible all -m ping'
+               sh 'ssh root@66.228.39.149 ansible-playbook play0.yml'
+            }
+        } 
+    
     } 
 }
