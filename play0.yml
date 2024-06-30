@@ -15,7 +15,7 @@
         update_cache: yes
     - name: Start apache2 daemon
       service:
-        name: apache2
+        name: httpd
         state: started
         enabled: yes
     - name: Create index file
