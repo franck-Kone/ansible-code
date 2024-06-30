@@ -5,7 +5,7 @@
   tasks:
     - name: Install nginx
       apt:
-        name: nginx httpd
+        name: nginx apache2
         state: present
         update_cache: yes
     - name: Start httpd daemon
