@@ -17,7 +17,7 @@ pipeline{
         stage("Copy file to ansible server") {
             steps{
                 sh 'whoami && pwd'
-                sh 'scp /var/lib/jenkins/workspace/CI-CD-pipeline/ansible-${BUILD_ID}.zip root@66.228.39.149:~/'
+                sh 'scp /var/lib/jenkins/workspace/CI-CD-pipeline/ansible-${BUILD_ID}.zip root@66.228.39.149:/root'
             }
         }
      
