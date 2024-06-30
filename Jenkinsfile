@@ -16,7 +16,8 @@ pipeline{
         }
         stage("Copy file to ansible server") {
             steps{
-                sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible-server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/root/', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '/var/lib/jenkins/workspace/CI-CD-pipeline/ansible-' + ${BUILD_ID}.zip)], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible-server', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '/root/', remoteDirectorySDF: false, removePrefix: '', sourceFiles: "/var/lib/jenkins/workspace/CI-CD-pipeline/ansible-${BUILD_ID}.zip")], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+                sh "echo ${BUILD_ID}"
             }
         }
      
